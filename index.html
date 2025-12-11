@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhirakshya Real Estate & Construction Pvt. Ltd.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231e3c72" width="1200" height="600"/><path fill="%232a5298" d="M0 300L50 320C100 340 200 380 300 390C400 400 500 380 600 360C700 340 800 320 900 330C1000 340 1100 380 1150 400L1200 420V600H0Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: #ffd700;
+            margin: 1rem auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1e3c72;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #1e3c72;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-message {
+            background: #4CAF50;
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        .error-message {
+            background: #f44336;
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Modern popup notification */
+        .popup-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 10000;
+            max-width: 400px;
+            animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .popup-notification.success {
+            border-left: 5px solid #4CAF50;
+        }
+
+        .popup-notification.error {
+            border-left: 5px solid #f44336;
+        }
+
+        .popup-content {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .popup-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .popup-text h4 {
+            margin: 0 0 0.5rem 0;
+            color: #1e3c72;
+            font-size: 1.1rem;
+        }
+
+        .popup-text p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .popup-close:hover {
+            background: #f0f0f0;
+        }
+
+        /* Loading overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #1e3c72;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text {
+            line-height: 1.8;
+        }
+
+        .about-text h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .about-highlights {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .about-highlights h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .highlight-text h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">🏛️</div>
+                <span>Abhirakshya</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>Abhirakshya Real Estate & Construction</h1>
+        <p>Building Dreams, Creating Communities</p>
+        <a href="#contact" class="btn">Get Started</a>
+    </section>
+
+    <div class="container">
+        <section id="services" class="section">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏡</div>
+                    <h3>Land Development</h3>
+                    <p>Expert land acquisition and development services with complete legal compliance and infrastructure planning.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📐</div>
+                    <h3>Plot Sales</h3>
+                    <p>Organized plots with proper road access, drainage systems, and all necessary utilities in prime locations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Construction Services</h3>
+                    <p>Quality home construction with modern designs, ensuring safety and durability in every project.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Legal Assistance</h3>
+                    <p>Complete support for registration, permits, naming processes, and all documentation requirements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Project Management</h3>
+                    <p>End-to-end project management and real estate consulting for hassle-free property development.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>Real Estate Consulting</h3>
+                    <p>Professional guidance on property investment, market analysis, and strategic planning.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">2082/83 Targets</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div>New Projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40-50</div>
+                    <div>Plots to Sell</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">90%+</div>
+                    <div>Customer Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2000+</div>
+                    <div>Digital Leads</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who We Are</h3>
+                    <p>Abhirakshya Real Estate and Construction Pvt. Ltd. is a registered private company dedicated to transforming the real estate landscape of Nepal. We specialize in residential and commercial projects, providing comprehensive services from land acquisition to complete housing development.</p>
+                    
+                    <p>Our mission is to provide safe, organized, and legally compliant land and housing solutions to our valued clients. With a commitment to quality, transparency, and customer satisfaction, we ensure every project meets the highest standards of excellence.</p>
+                    
+                    <h3 style="margin-top: 2rem;">Our Vision</h3>
+                    <p>To become the most trusted name in Nepal's real estate sector by delivering exceptional value, maintaining legal integrity, and building sustainable communities that enhance the quality of life for our clients.</p>
+                </div>
+                
+                <div class="about-highlights">
+                    <h3>Why Choose Us</h3>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">✓</div>
+                        <div class="highlight-text">
+                            <h4>Legal Compliance</h4>
+                            <p>All projects follow government regulations and proper documentation processes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">✓</div>
+                        <div class="highlight-text">
+                            <h4>Quality Assurance</h4>
+                            <p>Premium construction with modern infrastructure and utilities</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">✓</div>
+                        <div class="highlight-text">
+                            <h4>Expert Team</h4>
+                            <p>Experienced professionals in real estate, construction, and legal matters</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">✓</div>
+                        <div class="highlight-text">
+                            <h4>Customer First</h4>
+                            <p>Dedicated support throughout your property journey with 90%+ satisfaction rate</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">✓</div>
+                        <div class="highlight-text">
+                            <h4>Transparent Pricing</h4>
+                            <p>Clear pricing with no hidden costs and flexible payment options</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-form">
+                <div id="successMessage" class="success-message">
+                    Thank you! We'll contact you soon.
+                </div>
+                <div id="errorMessage" class="error-message">
+                    Failed to send message. Please try again.
+                </div>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="land">Land Purchase/Sale</option>
+                            <option value="plot">Plot Purchase</option>
+                            <option value="construction">Home Construction</option>
+                            <option value="legal">Legal Assistance</option>
+                            <option value="consulting">Real Estate Consulting</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Popup Notification -->
+    <div id="popupNotification" class="popup-notification">
+        <button class="popup-close" onclick="closePopup()">×</button>
+        <div class="popup-content">
+            <div class="popup-icon" id="popupIcon"></div>
+            <div class="popup-text">
+                <h4 id="popupTitle"></h4>
+                <p id="popupMessage"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2082/83 Abhirakshya Real Estate and Construction Pvt. Ltd. All rights reserved.</p>
+        <p>Safe, Organized, and Legal Property Solutions</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // ============================================
+        // EMAIL CONFIGURATION
+        // ============================================
+        // Replace these with your actual EmailJS credentials
+        // Get them from: https://dashboard.emailjs.com
+        const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';      // Your EmailJS Public Key
+        const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';      // Your Email Service ID
+        const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';    // Your Email Template ID
+        
+        // Your company email where inquiries will be sent
+        const COMPANY_EMAIL = 'info@abhirakshya.com';      // Change this to your actual email
+        
+        // Initialize EmailJS
+        if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+            emailjs.init(EMAILJS_PUBLIC_KEY);
+        }
+
+        // ============================================
+        // POPUP NOTIFICATION FUNCTIONS
+        // ============================================
+        function showPopup(type, title, message) {
+            const popup = document.getElementById('popupNotification');
+            const icon = document.getElementById('popupIcon');
+            const titleEl = document.getElementById('popupTitle');
+            const messageEl = document.getElementById('popupMessage');
+            
+            // Set content
+            titleEl.textContent = title;
+            messageEl.textContent = message;
+            
+            // Set icon and style based on type
+            if (type === 'success') {
+                popup.className = 'popup-notification success';
+                icon.textContent = '✓';
+                icon.style.color = '#4CAF50';
+            } else {
+                popup.className = 'popup-notification error';
+                icon.textContent = '✕';
+                icon.style.color = '#f44336';
+            }
+            
+            // Show popup
+            popup.style.display = 'block';
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                closePopup();
+            }, 5000);
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popupNotification');
+            popup.style.display = 'none';
+        }
+
+        function showLoading() {
+            document.getElementById('loadingOverlay').style.display = 'flex';
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingOverlay').style.display = 'none';
+        }
+
+        // ============================================
+        // SMOOTH SCROLLING
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ============================================
+        // FORM SUBMISSION HANDLER
+        // ============================================
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            
+            // Disable button and show loading
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            showLoading();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toLocaleString('en-US', { 
+                    timeZone: 'Asia/Kathmandu',
+                    dateStyle: 'full',
+                    timeStyle: 'short'
+                })
+            };
+            
+            // Service name mapping
+            const serviceNames = {
+                'land': 'Land Purchase/Sale',
+                'plot': 'Plot Purchase',
+                'construction': 'Home Construction',
+                'legal': 'Legal Assistance',
+                'consulting': 'Real Estate Consulting'
+            };
+            
+            try {
+                if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+                    // ============================================
+                    // FALLBACK: Open Email Client
+                    // ============================================
+                    const subject = encodeURIComponent(`New Inquiry from ${formData.name} - Abhirakshya`);
+                    const body = encodeURIComponent(
+                        `NEW INQUIRY RECEIVED\n` +
+                        `═══════════════════════════════════\n\n` +
+                        `Client Information:\n` +
+                        `─────────────────────\n` +
+                        `Name: ${formData.name}\n` +
+                        `Phone: ${formData.phone}\n` +
+                        `Email: ${formData.email || 'Not provided'}\n\n` +
+                        `Inquiry Details:\n` +
+                        `─────────────────────\n` +
+                        `Service Interested: ${serviceNames[formData.service]}\n\n` +
+                        `Message:\n` +
+                        `${formData.message}\n\n` +
+                        `═══════════════════════════════════\n` +
+                        `Received: ${formData.timestamp}\n`
+                    );
+                    
+                    hideLoading();
+                    
+                    // Show success popup
+                    showPopup(
+                        'success',
+                        'Opening Email Client',
+                        'Please send the email from your email app to complete the inquiry.'
+                    );
+                    
+                    // Open email client
+                    setTimeout(() => {
+                        window.location.href = `mailto:${COMPANY_EMAIL}?subject=${subject}&body=${body}`;
+                    }, 1000);
+                    
+                    // Reset form
+                    this.reset();
+                    
+                } else {
+                    // ============================================
+                    // EMAILJS: Send Email Automatically
+                    // ============================================
+                    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                        to_email: COMPANY_EMAIL,
+                        from_name: formData.name,
+                        from_phone: formData.phone,
+                        from_email: formData.email || 'Not provided',
+                        service_type: serviceNames[formData.service],
+                        message: formData.message,
+                        timestamp: formData.timestamp
+                    });
+                    
+                    hideLoading();
+                    
+                    // Show success popup
+                    showPopup(
+                        'success',
+                        'Message Sent Successfully!',
+                        `Thank you ${formData.name.split(' ')[0]}! We have received your inquiry and will contact you within 24 hours.`
+                    );
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Log for tracking
+                    console.log('Inquiry sent successfully:', formData);
+                }
+            } catch (error) {
+                hideLoading();
+                console.error('Error sending inquiry:', error);
+                
+                // Show error popup
+                showPopup(
+                    'error',
+                    'Failed to Send Message',
+                    'Something went wrong. Please try again or contact us directly at ' + COMPANY_EMAIL
+                );
+            } finally {
+                // Reset button
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 5px 20px rgba(0,0,0,0.2)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .stat-card, .highlight-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
