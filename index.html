@@ -432,6 +432,175 @@
             opacity: 0.9;
         }
 
+        .branches-section {
+            background: #f8f9fa;
+            padding: 3rem 0;
+            margin: 4rem 0;
+        }
+
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .branch-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .branch-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .branch-card.head-office {
+            border-top: 4px solid #ffd700;
+        }
+
+        .branch-card.head-office::before {
+            content: "HEAD OFFICE";
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .branch-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .branch-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .branch-details {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .branch-details p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+        }
+
+        .branch-details strong {
+            color: #1e3c72;
+            min-width: 60px;
+        }
+
+        .contact-info-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .contact-info-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .contact-info-text h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .contact-info-text p {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .personnel-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .personnel-card .personnel-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 1.5rem;
+            color: white;
+        }
+
+        .personnel-card h3 {
+            color: #1e3c72;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .personnel-card .designation {
+            color: #ffd700;
+            background: #1e3c72;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .personnel-details {
+            text-align: left;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .personnel-details p {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+
+        .personnel-details p strong {
+            color: #1e3c72;
+            min-width: 100px;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -593,6 +762,49 @@
 
         <section id="contact" class="section">
             <h2 class="section-title">Contact Us</h2>
+            
+            <!-- Company Personnel -->
+            <div class="personnel-card">
+                <div class="personnel-icon">👤</div>
+                <h3>Abhimanyu Adhikari</h3>
+                <span class="designation">Sanchalak (Director)</span>
+                <div class="personnel-details">
+                    <p><strong>📞 Phone:</strong> 9855081062</p>
+                    <p><strong>📧 Email:</strong> rakabhi2049@gmail.com</p>
+                    <p><strong>📍 Address:</strong>Bharatpur Metropolitan City, Ward 5, Chitwan</p>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info-section">
+                <h3 style="text-align: center; margin-bottom: 0.5rem; font-size: 1.8rem;">Get In Touch</h3>
+                <p style="text-align: center; opacity: 0.9; margin-bottom: 1rem;">Reach out to us for any inquiries or assistance</p>
+                <!-- <div class="contact-info-grid">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">📞</div>
+                        <div class="contact-info-text">
+                            <h4>Phone</h4>
+                            <p>1234567890</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">📧</div>
+                        <div class="contact-info-text">
+                            <h4>Email</h4>
+                            <p>info@abhirakshya.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">🏢</div>
+                        <div class="contact-info-text">
+                            <h4>Head Office</h4>
+                            <p>Bharatpur-10, Chitwan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>  -->
+
+
             <div class="contact-form">
                 <div id="successMessage" class="success-message">
                     Thank you! We'll contact you soon.
@@ -630,6 +842,45 @@
                     </div>
                     <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
                 </form>
+            </div>
+        </section>
+
+        <!-- Branch Locations -->
+        <section class="branches-section">
+            <div class="container">
+                <h2 class="section-title">Our Branch Locations</h2>
+                <div class="branches-grid">
+                    <div class="branch-card">
+                        <div class="branch-icon">📍</div>
+                        <h3>Bharatpur Branch</h3>
+                        <div class="branch-details">
+                            <p><strong>📌</strong> Bharatpur Metropolis, Ward No. 5</p>
+                            <p><strong>🏙️</strong> Chitwan, Nepal</p>
+                            <!-- <p><strong>📞</strong> Contact: 1234567890</p> -->
+                        </div>
+                    </div>
+
+                    <div class="branch-card head-office">
+                        <div class="branch-icon">🏢</div>
+                        <h3>Head Office</h3>
+                        <div class="branch-details">
+                            <p><strong>📌</strong> Bharatpur Metropolis, Ward No. 10</p>
+                            <p><strong>🏙️</strong> Chitwan, Nepal</p>
+                            <!-- <p><strong>📞</strong> Contact: 1234567890</p> -->
+                            <!-- <p><strong>📧</strong> info@abhirakshya.com</p> -->
+                        </div>
+                    </div>
+
+                    <div class="branch-card">
+                        <div class="branch-icon">📍</div>
+                        <h3>Kathmandu Branch</h3>
+                        <div class="branch-details">
+                            <p><strong>📌</strong> Tokha Municipality, Ward No. 3</p>
+                            <p><strong>🏙️</strong> Kathmandu, Nepal</p>
+                            <!-- <p><strong>📞</strong> Contact: 1234567890</p> -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -882,7 +1133,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.service-card, .stat-card, .highlight-item').forEach(el => {
+        document.querySelectorAll('.service-card, .stat-card, .highlight-item, .branch-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
